@@ -1,14 +1,14 @@
 resource "aws_security_group" "main" {
   name        = "allow_elasticache_redis_${var.COMPONENT}_${var.ENV}"
   description = "allow_elasticache_redis_${var.COMPONENT}_${var.ENV}"
-  vpc_id = data.terraform_remote_state.vpc.outputs.VPC_ID
+  vpc_id = var.VPC_ID
 
   ingress {
     description = "REDIS"
     from_port   = 6379
     to_port     = 6379
     protocol    = "tcp"
-    cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
+    cidr_blocks = [var.VPC_CIDR]
   }
 
   egress {
