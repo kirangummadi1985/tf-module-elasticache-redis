@@ -6,4 +6,6 @@ resource "aws_elasticache_cluster" "escluster" {
   parameter_group_name = aws_elasticache_parameter_group.default.name
   engine_version       = var.ENGINE_VERSION
   port                 = 6379
+  subnet_group_name    = aws_elasticache_subnet_group.main.name
+  security_group_ids   = [aws_security_group.main.id]
 }
