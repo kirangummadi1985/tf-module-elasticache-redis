@@ -9,3 +9,4 @@ variable "FAMILY" {}
 variable "VPC_ID" {}
 variable "VPC_CIDR" {}
 variable "SUBNET_IDS" {}
+variable "PRIVATE_HOSTED_ZONE_ID" {}
